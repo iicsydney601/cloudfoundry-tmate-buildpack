@@ -47,6 +47,11 @@ if [ ! -f ${cache_target} ]; then
   curl -s https://s3.amazonaws.com/tmate-buildpack-assets/launch > ${target}/bin/launch
   chmod +x ${target}/bin/launch
 
+  # download db2 client  
+  echo "--------> Downloading Db2 client...."
+  cd ~
+  wget https://dl.dropboxusercontent.com/u/92217296/bluemix/v9.7fp9a_linuxx64_rtcl.tar.gz
+  
   #Create cache slug
   tar czf ${cache_target} -C ${target} .
 fi
